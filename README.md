@@ -23,6 +23,24 @@ $ composer require gravatarphp/twig-integration
 
 ## Usage
 
+``` php
+use Gravatar\UrlBuilder;
+use Gravatar\Twig\Extension;
+
+$extension = new Extension(new UrlBuilder);
+
+$environment->addExtension($extension);
+```
+
+Use it in a twig template:
+
+``` twig
+'user@domain.com'|avatar
+'user@domain.com'|profile
+'user@domain.com'|vcard
+'user@domain.com'|qrCode
+```
+
 
 ## Testing
 
