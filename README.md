@@ -34,11 +34,11 @@ $environment->addExtension($extension);
 
 Use it in a twig template:
 
-``` twig
-'user@domain.com'|avatar
-'user@domain.com'|profile
-'user@domain.com'|vcard
-'user@domain.com'|qrCode
+``` html
+<a href="{{ 'user@domain.com'|avatar }}">Avatar</a>
+<a href="{{ 'user@domain.com'|profile }}">Profile</a>
+<a href="{{ 'user@domain.com'|vcard }}">vCard</a>
+<a href="{{ 'user@domain.com'|qrCode }}">QR Code</a>
 ```
 
 
