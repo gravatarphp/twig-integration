@@ -26,18 +26,11 @@ class Extension extends \Twig_Extension
     protected $urlBuilder;
 
     /**
-     * @var string
-     */
-    protected $prefixFilterNames;
-
-    /**
      * @param UrlBuilder $urlBuilder
-     * @param boolean    $prefixFilterNames
      */
-    public function __construct(UrlBuilder $urlBuilder, $prefixFilterNames = false)
+    public function __construct(UrlBuilder $urlBuilder)
     {
         $this->urlBuilder = $urlBuilder;
-        $this->prefixFilterNames = (bool) $prefixFilterNames;
     }
 
     /**
@@ -54,26 +47,10 @@ class Extension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter($this->prefixFilterName('avatar'), [$this->urlBuilder, 'avatar']),
-            new \Twig_SimpleFilter($this->prefixFilterName('profile'), [$this->urlBuilder, 'profile']),
-            new \Twig_SimpleFilter($this->prefixFilterName('vcard'), [$this->urlBuilder, 'vcard']),
-            new \Twig_SimpleFilter($this->prefixFilterName('qrCode'), [$this->urlBuilder, 'qrCode']),
+            new \Twig_SimpleFilter('avatar', [$this->urlBuilder, 'avatar']),
+            new \Twig_SimpleFilter('profile', [$this->urlBuilder, 'profile']),
+            new \Twig_SimpleFilter('vcard', [$this->urlBuilder, 'vcard']),
+            new \Twig_SimpleFilter('qrCode', [$this->urlBuilder, 'qrCode']),
         ];
-    }
-
-    /**
-     * Prefix filter names to avoid any collision if necessary
-     *
-     * @param string $name
-     *
-     * @return string
-     */
-    protected function prefixFilterName($name)
-    {
-        if ($this->prefixFilterNames) {
-            $name = $this->getName().'_'.$name;
-        }
-
-        return $name;
     }
 }
