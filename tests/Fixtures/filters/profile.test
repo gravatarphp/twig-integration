@@ -1,0 +1,10 @@
+--TEST--
+"profile" filter
+--TEMPLATE--
+{{ email|profile }}
+--DATA--
+return [
+    'email' => 'user@domain.com',
+]
+--EXPECT--
+https://secure.gravatar.com/cd2bfcffe5fee4a1149d101994d0987f

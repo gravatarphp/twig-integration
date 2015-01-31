@@ -1,0 +1,10 @@
+--TEST--
+"avatar" filter
+--TEMPLATE--
+{{ email|avatar }}
+--DATA--
+return [
+    'email' => 'user@domain.com',
+]
+--EXPECT--
+https://secure.gravatar.com/avatar/cd2bfcffe5fee4a1149d101994d0987f
