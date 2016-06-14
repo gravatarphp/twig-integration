@@ -27,21 +27,21 @@ class Extension extends \Twig_Extension
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getFilters()
     {
-        return 'gravatar';
+        return [
+            new \Twig_SimpleFilter('gravatar_avatar', [$this->urlBuilder, 'avatar']),
+            new \Twig_SimpleFilter('gravatar_profile', [$this->urlBuilder, 'profile']),
+            new \Twig_SimpleFilter('gravatar_vcard', [$this->urlBuilder, 'vcard']),
+            new \Twig_SimpleFilter('gravatar_qrCode', [$this->urlBuilder, 'qrCode']),
+        ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getFilters()
+    public function getName()
     {
-        return [
-            new \Twig_SimpleFilter('avatar', [$this->urlBuilder, 'avatar']),
-            new \Twig_SimpleFilter('profile', [$this->urlBuilder, 'profile']),
-            new \Twig_SimpleFilter('vcard', [$this->urlBuilder, 'vcard']),
-            new \Twig_SimpleFilter('qrCode', [$this->urlBuilder, 'qrCode']),
-        ];
+        return 'gravatar';
     }
 }

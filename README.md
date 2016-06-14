@@ -33,10 +33,10 @@ $environment->addExtension($extension);
 Use it in a twig template:
 
 ``` html
-<a href="{{ 'user@domain.com'|avatar }}">Avatar</a>
-<a href="{{ 'user@domain.com'|profile }}">Profile</a>
-<a href="{{ 'user@domain.com'|vcard }}">vCard</a>
-<a href="{{ 'user@domain.com'|qrCode }}">QR Code</a>
+<a href="{{ 'user@domain.com'|gravatar_avatar }}">Avatar</a>
+<a href="{{ 'user@domain.com'|gravatar_profile }}">Profile</a>
+<a href="{{ 'user@domain.com'|gravatar_vcard }}">vCard</a>
+<a href="{{ 'user@domain.com'|gravatar_qrCode }}">QR Code</a>
 ```
 
 

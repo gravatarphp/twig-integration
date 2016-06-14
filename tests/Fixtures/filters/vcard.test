@@ -1,7 +1,7 @@
 --TEST--
 "vcard" filter
 --TEMPLATE--
-{{ email|vcard }}
+{{ email|gravatar_vcard }}
 --DATA--
 return [
     'email' => 'user@domain.com',

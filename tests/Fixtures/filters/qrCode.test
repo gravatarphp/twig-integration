@@ -1,7 +1,7 @@
 --TEST--
 "qrCode" filter
 --TEMPLATE--
-{{ email|qrCode }}
+{{ email|gravatar_qrCode }}
 --DATA--
 return [
     'email' => 'user@domain.com',

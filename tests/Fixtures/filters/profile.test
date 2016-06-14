@@ -1,7 +1,7 @@
 --TEST--
 "profile" filter
 --TEMPLATE--
-{{ email|profile }}
+{{ email|gravatar_profile }}
 --DATA--
 return [
     'email' => 'user@domain.com',

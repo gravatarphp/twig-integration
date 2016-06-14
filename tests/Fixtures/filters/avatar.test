@@ -1,7 +1,7 @@
 --TEST--
 "avatar" filter
 --TEMPLATE--
-{{ email|avatar }}
+{{ email|gravatar_avatar }}
 --DATA--
 return [
     'email' => 'user@domain.com',
