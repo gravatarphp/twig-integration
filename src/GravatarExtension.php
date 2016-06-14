@@ -9,7 +9,7 @@ use Gravatar\UrlBuilder;
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class Extension extends \Twig_Extension
+class GravatarExtension extends \Twig_Extension
 {
     /**
      * @var UrlBuilder

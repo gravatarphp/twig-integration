@@ -1,13 +1,13 @@
 <?php
 
 use Gravatar\UrlBuilder;
-use Gravatar\Twig\Extension;
+use Gravatar\Twig\GravatarExtension;
 
 class IntegrationTest extends Twig_Test_IntegrationTestCase
 {
     public function getExtensions()
     {
-        return [new Extension(new UrlBuilder)];
+        return [new GravatarExtension(new UrlBuilder())];
     }
 
     public function getFixturesDir()

@@ -23,9 +23,9 @@ $ composer require gravatarphp/twig-integration
 
 ``` php
 use Gravatar\UrlBuilder;
-use Gravatar\Twig\Extension;
+use Gravatar\Twig\GravatarExtension;
 
-$extension = new Extension(new UrlBuilder());
+$extension = new GravatarExtension(new UrlBuilder());
 
 $environment->addExtension($extension);
 ```
@@ -43,7 +43,7 @@ Use it in a twig template:
 ## Testing
 
 ``` bash
-$ phpunit
+$ composer test
 ```
 
 
