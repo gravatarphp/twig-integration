@@ -5,9 +5,7 @@
 [![Build Status](https://img.shields.io/travis/gravatarphp/twig-integration.svg?style=flat-square)](https://travis-ci.org/gravatarphp/twig-integration)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/gravatarphp/twig-integration.svg?style=flat-square)](https://scrutinizer-ci.com/g/gravatarphp/twig-integration)
 [![Quality Score](https://img.shields.io/scrutinizer/g/gravatarphp/twig-integration.svg?style=flat-square)](https://scrutinizer-ci.com/g/gravatarphp/twig-integration)
-[![HHVM Status](https://img.shields.io/hhvm/gravatarphp/twig-integration.svg?style=flat-square)](http://hhvm.h4cc.de/package/gravatarphp/twig-integration)
 [![Total Downloads](https://img.shields.io/packagist/dt/gravatarphp/twig-integration.svg?style=flat-square)](https://packagist.org/packages/gravatarphp/twig-integration)
-[![Dependency Status](https://img.shields.io/versioneye/d/php/gravatarphp:twig-integration.svg?style=flat-square)](https://www.versioneye.com/php/gravatarphp:twig-integration)
 
 **Integrates Gravatar into Twig templating engine.**
 
@@ -27,7 +25,7 @@ $ composer require gravatarphp/twig-integration
 use Gravatar\UrlBuilder;
 use Gravatar\Twig\Extension;
 
-$extension = new Extension(new UrlBuilder);
+$extension = new Extension(new UrlBuilder());
 
 $environment->addExtension($extension);
 ```
@@ -47,11 +45,6 @@ Use it in a twig template:
 ``` bash
 $ phpunit
 ```
-
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 
 ## Credits
