@@ -5,7 +5,7 @@ namespace Gravatar\Twig;
 use Gravatar\UrlBuilder;
 
 /**
- * Gravatar Twig extension
+ * Gravatar Twig extension.
  *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
