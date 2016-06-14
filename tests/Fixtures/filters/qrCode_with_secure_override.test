@@ -1,0 +1,10 @@
+--TEST--
+"qrCode" filter with secure override
+--TEMPLATE--
+{{ email|gravatar_qrCode(false) }}
+--DATA--
+return [
+    'email' => 'user@domain.com',
+]
+--EXPECT--
+http://www.gravatar.com/cd2bfcffe5fee4a1149d101994d0987f.qr

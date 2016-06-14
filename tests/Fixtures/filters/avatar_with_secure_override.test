@@ -1,0 +1,10 @@
+--TEST--
+"avatar" filter with secure override
+--TEMPLATE--
+{{ email|gravatar_avatar({}, false) }}
+--DATA--
+return [
+    'email' => 'user@domain.com',
+]
+--EXPECT--
+http://www.gravatar.com/avatar/cd2bfcffe5fee4a1149d101994d0987f
