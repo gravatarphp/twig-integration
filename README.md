@@ -22,10 +22,10 @@ $ composer require gravatarphp/twig-integration
 ## Usage
 
 ``` php
-use Gravatar\UrlBuilder;
+use Gravatar\Gravatar;
 use Gravatar\Twig\GravatarExtension;
 
-$extension = new GravatarExtension(new UrlBuilder());
+$extension = new GravatarExtension(new Gravatar());
 
 $environment->addExtension($extension);
 ```

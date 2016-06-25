@@ -2,7 +2,7 @@
 
 namespace Gravatar\Twig;
 
-use Gravatar\UrlBuilder;
+use Gravatar\Gravatar;
 
 /**
  * Gravatar Twig extension.
@@ -12,16 +12,16 @@ use Gravatar\UrlBuilder;
 class GravatarExtension extends \Twig_Extension
 {
     /**
-     * @var UrlBuilder
+     * @var Gravatar
      */
-    protected $urlBuilder;
+    protected $gravatar;
 
     /**
-     * @param UrlBuilder $urlBuilder
+     * @param Gravatar $gravatar
      */
-    public function __construct(UrlBuilder $urlBuilder)
+    public function __construct(Gravatar $gravatar)
     {
-        $this->urlBuilder = $urlBuilder;
+        $this->gravatar = $gravatar;
     }
 
     /**
@@ -30,10 +30,10 @@ class GravatarExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('gravatar_avatar', [$this->urlBuilder, 'avatar']),
-            new \Twig_SimpleFilter('gravatar_profile', [$this->urlBuilder, 'profile']),
-            new \Twig_SimpleFilter('gravatar_vcard', [$this->urlBuilder, 'vcard']),
-            new \Twig_SimpleFilter('gravatar_qrCode', [$this->urlBuilder, 'qrCode']),
+            new \Twig_SimpleFilter('gravatar_avatar', [$this->gravatar, 'avatar']),
+            new \Twig_SimpleFilter('gravatar_profile', [$this->gravatar, 'profile']),
+            new \Twig_SimpleFilter('gravatar_vcard', [$this->gravatar, 'vcard']),
+            new \Twig_SimpleFilter('gravatar_qrCode', [$this->gravatar, 'qrCode']),
         ];
     }
 
