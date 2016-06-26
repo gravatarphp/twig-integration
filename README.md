@@ -39,6 +39,14 @@ Use it in a twig template:
 <a href="{{ 'user@domain.com'|gravatar_qrCode }}">QR Code</a>
 ```
 
+Options can be provided as first filter parameter, for example:
+
+``` html
+<a href="{{ 'user@domain.com'|gravatar_avatar({d: 'retro'}) }}">Avatar</a>
+```
+
+All options can be found on [Gravatar's documentation](http://gravatar.com/site/implement/images/).
+
 
 ## Testing
 
