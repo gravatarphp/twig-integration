@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true" bootstrap="vendor/autoload.php">
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         beStrictAboutOutputDuringTests="true"
+         cacheResult="false"
+         colors="true"
+         executionOrder="random"
+         failOnRisky="true"
+         failOnWarning="true"
+         verbose="true"
+>
     <testsuites>
         <testsuite name="Gravatar Twig Test Suite">
             <directory>tests/</directory>
@@ -8,6 +18,14 @@
     <filter>
         <whitelist>
             <directory suffix=".php">src/</directory>
+            <exclude>
+                <directory suffix="Interface.php">src/</directory>
+            </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-html" target="build/coverage" highLowerBound="90" />
+        <log type="coverage-text" target="build/coverage.txt" highLowerBound="90" showOnlySummary="true" />
+    </logging>
 </phpunit>

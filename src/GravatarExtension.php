@@ -1,46 +1,39 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Gravatar\Twig;
 
 use Gravatar\Gravatar;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 /**
- * Gravatar Twig extension.
- *
  * @author Márk Sági-Kazár <mark.sagikazar@gmail.com>
  */
-class GravatarExtension extends \Twig_Extension
+final class GravatarExtension extends AbstractExtension
 {
     /**
      * @var Gravatar
      */
-    protected $gravatar;
+    private $gravatar;
 
-    /**
-     * @param Gravatar $gravatar
-     */
     public function __construct(Gravatar $gravatar)
     {
         $this->gravatar = $gravatar;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
-            new \Twig_SimpleFilter('gravatar_avatar', [$this->gravatar, 'avatar']),
-            new \Twig_SimpleFilter('gravatar_profile', [$this->gravatar, 'profile']),
-            new \Twig_SimpleFilter('gravatar_vcard', [$this->gravatar, 'vcard']),
-            new \Twig_SimpleFilter('gravatar_qrCode', [$this->gravatar, 'qrCode']),
+            new TwigFilter('gravatar_avatar', [$this->gravatar, 'avatar']),
+            new TwigFilter('gravatar_profile', [$this->gravatar, 'profile']),
+            new TwigFilter('gravatar_vcard', [$this->gravatar, 'vcard']),
+            new TwigFilter('gravatar_qrCode', [$this->gravatar, 'qrCode']),
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
+    public function getName(): string
     {
         return 'gravatar';
     }
