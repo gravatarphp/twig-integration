@@ -7,15 +7,9 @@ cache:
         - $HOME/.composer/cache/files
 
 php:
-    - 5.4
-    - 5.5
-    - 5.6
-    - 7.0
-    - hhvm
-
-env:
-    global:
-        - TEST_COMMAND="composer test"
+    - 7.2
+    - 7.3
+    - 7.4
 
 branches:
     except:
@@ -24,18 +18,13 @@ branches:
 matrix:
     fast_finish: true
     include:
-        - php: 5.4
-          env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest" COVERAGE=true TEST_COMMAND="composer test-ci"
-
-before_install:
-    - if [[ $COVERAGE != true && $TRAVIS_PHP_VERSION != hhvm ]]; then phpenv config-rm xdebug.ini; fi
+        - php: 7.2
+          env: COMPOSER_FLAGS="--prefer-stable --prefer-lowest"
 
 install:
     - travis_retry composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
 
 script:
-    - $TEST_COMMAND
-
-after_success:
-    - if [[ "$COVERAGE" = true ]]; then wget https://scrutinizer-ci.com/ocular.phar; fi
-    - if [[ "$COVERAGE" = true ]]; then php ocular.phar code-coverage:upload --format=php-clover build/coverage.xml; fi
+    - make lint-php
+    - make php-cs-fixer-dry
+    - make phpunit

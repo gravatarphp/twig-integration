@@ -1,7 +1,64 @@
 <?php
 
-require_once __DIR__.'/vendor/sllh/php-cs-fixer-styleci-bridge/autoload.php';
+$finder = PhpCsFixer\Finder::create()
+    ->in([
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ]);
 
-use SLLH\StyleCIBridge\ConfigBridge;
-
-return ConfigBridge::create();
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setUsingCache(false)
+    ->setRules([
+        'declare_strict_types' => true,
+        'final_class' => true,
+        'final_static_access' => true,
+        'function_to_constant' => true,
+        'native_constant_invocation' => true,
+        'native_function_invocation' => ['include' => ['@all']],
+        'no_alternative_syntax' => true,
+        'no_empty_phpdoc' => true,
+        'no_extra_blank_lines' => true,
+        'no_superfluous_phpdoc_tags' => ['allow_mixed' => true],
+        'no_trailing_comma_in_singleline_array' => true,
+        'no_trailing_whitespace' => true,
+        'no_trailing_whitespace_in_comment' => true,
+        'no_unneeded_control_parentheses' => true,
+        'no_useless_else' => true,
+        'no_useless_return' => true,
+        'no_whitespace_before_comma_in_array' => true,
+        'no_whitespace_in_blank_line' => true,
+        'normalize_index_brace' => true,
+        'php_unit_construct' => true,
+        'php_unit_dedicate_assert' => ['target' => 'newest'],
+        'php_unit_dedicate_assert_internal_type' => ['target' => 'newest'],
+        'php_unit_mock' => ['target' => 'newest'],
+        'php_unit_mock_short_will_return' => true,
+        'php_unit_ordered_covers' => true,
+        'php_unit_set_up_tear_down_visibility' => true,
+        'php_unit_test_annotation' => ['style' => 'annotation', 'case' => 'camel'],
+        'php_unit_test_case_static_method_calls' => ['call_type' => 'this'],
+        'phpdoc_align' => ['align' => 'left'],
+        'phpdoc_line_span' => ['method' => 'multi', 'property' => 'multi'],
+        'phpdoc_no_package' => true,
+        'phpdoc_no_useless_inheritdoc' => true,
+        'phpdoc_scalar' => true,
+        'phpdoc_single_line_var_spacing' => true,
+        'phpdoc_trim' => true,
+        'phpdoc_trim_consecutive_blank_line_separation' => true,
+        'phpdoc_types' => true,
+        'phpdoc_types_order' => ['null_adjustment' => 'always_last', 'sort_algorithm' => 'none'],
+        'phpdoc_var_annotation_correct_order' => true,
+        'phpdoc_var_without_name' => true,
+        'protected_to_private' => true,
+        'random_api_migration' => true,
+        'return_assignment' => true,
+        'single_trait_insert_per_statement' => true,
+        'standardize_not_equals' => true,
+        'static_lambda' => true,
+        'ternary_to_null_coalescing' => true,
+        'trim_array_spaces' => true,
+        'void_return' => true,
+        'whitespace_after_comma_in_array' => true,
+    ])
+    ->setFinder($finder);
