@@ -58,6 +58,7 @@ $ composer test
 ## Credits
 
 - [Márk Sági-Kazár](https://github.com/sagikazarmark)
+- [George Mponos](https://github.com/gmponos)
 - [All Contributors](https://github.com/gravatarphp/twig-integration/contributors)
 
 

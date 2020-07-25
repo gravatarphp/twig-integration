@@ -7,8 +7,8 @@ lint-php:
 php-cs-fixer:
 	php ./bin/php-cs-fixer.phar fix -v
 
-phpstan:
-	php vendor/bin/phpstan analyse -c phpstan.neon ./src tests/
+php-cs-fixer-dry:
+	php bin/php-cs-fixer.phar fix -v --dry-run --diff --diff-format=udiff
 
 phpunit:
-	php vendor/bin/phpunit tests/ --colors=always --stop-on-failure
+	php vendor/bin/phpunit --colors=always
