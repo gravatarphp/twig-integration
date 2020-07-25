@@ -10,5 +10,8 @@ php-cs-fixer:
 php-cs-fixer-dry:
 	php bin/php-cs-fixer.phar fix -v --dry-run --diff --diff-format=udiff
 
+composer-normalize:
+	php bin/composer-normalize.phar --no-update-lock
+
 phpunit:
 	php vendor/bin/phpunit --colors=always
